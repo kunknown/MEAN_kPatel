@@ -1,0 +1,33 @@
+{
+  "name": "mean_kpatel",
+  "version": "1.0.0",
+  "description": "A personal website implented with MEAN stack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kunknown/MEAN_kPatel.git"
+  },
+  "keywords": [
+    "MEAN",
+    "Node",
+    "Angular",
+    "JavaScript",
+    "ES6"
+  ],
+  "author": "Kaushal Patel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kunknown/MEAN_kPatel/issues"
+  },
+  "homepage": "https://github.com/kunknown/MEAN_kPatel#readme",
+  "dependencies": {
+    "angular": "^1.7.8",
+    "angular-route": "^1.7.8",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.3"
+  }
+}
