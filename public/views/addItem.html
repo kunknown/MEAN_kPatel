@@ -1,0 +1,28 @@
+<div class="container">
+        <div class="row">
+                <form ng-init="newItem()" novalidate>
+                    <div class="header">
+                        <input ng-hide="skillEdit" class="center" type="text" placeholder="Title" id="title" ng-model="data.title">
+                    </div>
+                    <div class="card grey darken-4">
+                        <div class="card-content white-text">
+                            <input ng-show="expEdit || resumeEdit || eduEdit" type="text" placeholder="Institute, Location (City, State)" id="location" ng-model="data.location">
+                            <input ng-show="expEdit || resumeEdit || eduEdit" type="text" placeholder="Start - End (Month Year)" id="start_end_date" ng-model="data.date">
+                            <input ng-show="projectEdit" type="url" placeholder="URL" id="link" ng-model="data.link">
+                            <input ng-show="projectEdit" type="text" placeholder="Technology" id="technology" ng-model="data.technology">
+                            <textarea ng-hide="skillEdit" id="details" ng-model="data.details">
+                                Summary...
+                            </textarea>
+                            <div ng-click="saveData()" class="center">
+                                <a class="btn-floating btn-medium waves-effect waves-light green">
+                                    <i class="material-icons">add</i>
+                                    <input type="submit" value="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    

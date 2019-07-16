@@ -1,0 +1,19 @@
+<div class="container" ng-init="getData()">
+        <div class="row">
+            <div class="card col s12 grey darken-4">
+                <div class="card-content">
+                    <div class="card-title white-text">
+                        <form ng-submit="addSkill()" name="skillForm">
+                            <input ng-model="newSkill" type="text" name="newSkill" >
+                            <input type="submit" value="" hidden>
+                        </form>
+                    </div>
+                    <div ng-repeat="skill in data" class="chip skills" id="skill._id" ng-click="deleteItem(skill._id)">
+                        {{skill.name}}
+                        <!-- <i class="close material-icons">close</i> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    

@@ -1,0 +1,23 @@
+body{
+    background-color: #eeeeee;
+}
+main{
+    margin-top: 100px;
+}
+
+input{
+    color: inherit;
+}
+
+div.header input {
+    font-weight: bold;
+}
+
+textarea{
+    min-height: 3em;
+    color: inherit;
+}
+
+div.skills:hover {
+    text-decoration: line-through; 
+}

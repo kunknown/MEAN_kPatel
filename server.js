@@ -2,23 +2,31 @@
 
 //requires
 const express = require('express');
-const mongoose = require('mongoose');
+const mongoose = require('./controllers/mongooseController');
+const bodyParser = require('body-parser');
 
 const app = express();
-const router = express.Router();
 
-//Routing
+//config app
+app.use(bodyParser.json());
 
+//static files
+app.use(express.static('./public'));
 
-//mongoDB Config
-const mongoURL = '';
+//template engine
 
-//connect to mongoDB
-mongoose.connect(mongoURL);
+//Connect to mongoDB
+mongoose.init();
 
 //Config port
 const port = 8080;
 
 //Listen to port
 app.listen(port);
-console.log(`Server is listening to ${port}`);
+console.log(`Server is listening to ${port}.`);
+
+//expose app
+exports = module.exports = app;
+
+//routing
+require('./controllers/routeController')(app);
