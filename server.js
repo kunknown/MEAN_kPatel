@@ -16,7 +16,7 @@ app.use(express.static('./public'));
 //template engine
 
 //Connect to mongoDB
-mongoose.initConnection('kPatel','kPatel123');
+mongoose.initConnection();
 mongoose.createSchemaModel();
 
 //Config port

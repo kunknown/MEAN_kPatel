@@ -2,11 +2,12 @@
 const mongoose = require('mongoose');
 
 //mongoDB Config
-const mongoURL = 'mongodb://ds347917.mlab.com:47917/mean-kpatel'; //kPatel:kPatel123
+const mongoConfig = require('../mongoConfig');
+const mongoURL = mongoConfig.url;
 
 //default user/pass
-username = 'readOnlyUser';
-password = 'roUser123';
+username = mongoConfig.publicUser;
+password = mongoConfig.publicPass;
 
 var expSchema, skillSchema, eduSchema, projectSchema, expModel, skillModel, eduModel, projectModel;
 
