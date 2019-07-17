@@ -12,9 +12,8 @@ app.post('/api/login/in', (req, res)=>{
     error = mongoose.initConnection(req.body.username, req.body.password);
     if(!error){
       mongoose.updateAdmin({admin: true}).then(doc=>{
-        console.log(doc);
+        res.status(200).send({result: 'Login Successful'});
       });
-      res.status(200).send({result: 'Login Successful'});
     }
     else{
       console.log(error);
@@ -29,11 +28,9 @@ app.get('/api/login/out', (req, res)=>{
   .then(()=>{
     error = mongoose.initConnection();
     if(!error){
-      console.log('hitting');
       mongoose.updateAdmin({admin: false}).then(doc=>{
-        console.log(doc);
+        res.status(200).send({result: 'Logout Successful'});
       });
-      res.status(200).send({result: 'Logout Successful'});
     }
     else{
       console.log(error);

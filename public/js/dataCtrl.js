@@ -69,11 +69,13 @@ angular.module('dataCtrl', []).controller('dataController', function($scope, $ht
       angular.element(window)[0].location.href = pathName + '/add';
     }
     $scope.deleteItem = function(id){
-      pathName = angular.element(window)[0].location.pathname;
-      $http.delete('/api' + pathName + '/delete/'+id)
-      .then(function(){
-        $scope.getData();
-      });
+      if($scope.admin){
+        pathName = angular.element(window)[0].location.pathname;
+        $http.delete('/api' + pathName + '/delete/'+id)
+        .then(function(){
+          $scope.getData();
+        });
+      }
     }
     $scope.saveData = function(){
       config = {

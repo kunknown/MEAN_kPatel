@@ -2,12 +2,12 @@
 const mongoose = require('mongoose');
 
 //mongoDB Config
-const mongoConfig = require('../mongoConfig');
-const mongoURL = mongoConfig.url;
+const config = require('../config');
+const mongoURL = config.url;
 
 //default user/pass
-username = mongoConfig.publicUser;
-password = mongoConfig.publicPass;
+username = config.publicUser;
+password = config.publicPass;
 
 var expSchema, skillSchema, eduSchema, projectSchema, expModel, skillModel, eduModel, projectModel;
 

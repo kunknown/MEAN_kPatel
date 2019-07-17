@@ -1,6 +1,7 @@
 //nodemailer.js
 
 var nodemailer = require('nodemailer');
+const config = require('../config');
 
 module.exports.sendMail = async (data) => {
     // let testAccount = await nodemailer.createTestAccount();
@@ -13,25 +14,16 @@ module.exports.sendMail = async (data) => {
             rejectUnauthorized: false
         },
         auth: {
-            user: 'k.offline.p@gmail.com',
-            pass: 'Z3R0n00b@ss'
+            user: config.email,
+            pass: config.ePass
         }
     });
 
     var mailOptions = {
         from: data.email,
-        to: 'k.offline.p@gmail.com',
+        to: config.email,
         subject: data.company + ' - ' + data.firstname + ' ' + data.lastname,
         text: data.message
     };
 
-    return await transporter.sendMail(mailOptions);
-    // , (error, info)=>{
-    //     if(error){
-    //         console.log(error);
-    //     }
-    //     else{
-    //         console.log(info.response);
-    //     }
-    // });
-}
+    return await transporter.sendMail(mailOptions);}
