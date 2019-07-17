@@ -2,7 +2,37 @@
 A digital portfolio built using MEAN stack
 
 **INSTRUCTIONS**
+**Folder Structure**
+--MEAN_kPatel
+----controllers
+----node_modules
+----public
+------assets
+------js
+------lib
+--------angular
+--------angular-route
+------readmeContent
+------views
+------index.css
+------index.html
+----config.js
+----README.md
+----server.js
 
+**Move angular libraries to 'MEAN_kPatel/public/lib/' folder**
+
+**config.js (NOTE: add in root folder)**
+*Create this file in the root folder with the following code:*
+module.exports = {
+    url: "*(mongoDB URL)*",
+    privateUser: "*(privilaged-username)*",
+    privatePass: "*(privilaged-password)*",
+    publicUser: "*(regular-username)*",
+    publicPass: "*(regular-password)*",
+    email: "*(email address)*",
+    ePass: "*(email password)*"
+};
 
 **FEATURES**
 **Regular User**
@@ -35,15 +65,3 @@ A digital portfolio built using MEAN stack
 *The app is responsive and the UI of both, the menu & the page, will change accordingly*
 ![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/mobile_home_reg.PNG)
 ![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/mobile_nav.PNG)
-
-**config.js (NOTE: add in root folder)**
-*Create this file in the root folder with the following code:*
-module.exports = {
-    url: "*(mongoDB URL)*",
-    privateUser: "*(privilaged-username)*",
-    privatePass: "*(privilaged-password)*",
-    publicUser: "*(regular-username)*",
-    publicPass: "*(regular-password)*",
-    email: "*(email address)*",
-    ePass: "*(email password)*"
-};
