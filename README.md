@@ -56,20 +56,22 @@ module.exports = {
 
 **Regular User**
 
-*All the pages will be read-only (cannot edit, add, or delete content of the page) for regular user*
+*All the pages will be read-only (cannot edit, add, or delete content of the page) for regular user.*
 ![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/home_reg.PNG)
 ![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/resume_exp_reg.PNG)
 ![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/resume_skill_reg.PNG)
 ![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/resume_edu_reg.PNG)
 ![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/project_reg.PNG)
-*Login page can be used to switch to privilaged user by clicking the GREEN log-in button after entering appropriate username & password (specified in the config.js file)*
+*Regular user can send an email to linked account (config.js) by filling in the appripriate information & pressing ENTER.*
+![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/contact_reg.PNG)
+*Login page can be used to switch to privilaged user by clicking the GREEN log-in button after entering appropriate username & password (specified in the config.js file).*
 ![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/login_reg.PNG)
 
 **Privilaged User**
 
 *All the pages will be editable for the privilaged user. The BLUE edit button on the left can be used to edit the content of the card.*
 ![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/home_priv.PNG)
-*The RED delete button on the right can be used to delete the card. The GREEN add button can be used to add a new card*
+*The RED delete button on the right can be used to delete the card. The GREEN add button can be used to add a new card.*
 ![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/resume_exp_priv.PNG)
 ![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/resume_edu_priv.PNG)
 ![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/project_priv.PNG)
@@ -84,6 +86,6 @@ module.exports = {
 
 **Responsive UI**
 
-*The app is responsive and the UI of both, the menu & the page, will change accordingly*
+*The app is responsive and the UI of both, the menu & the page, will change accordingly.*
 ![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/mobile_home_reg.PNG)
 ![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/mobile_nav.PNG)
