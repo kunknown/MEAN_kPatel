@@ -18,7 +18,7 @@ A digital portfolio built using MEAN stack
 **Privilaged User**
 *All the pages will be editable for the privilaged user. The BLUE edit button on the left can be used to edit the content of the card.*
 ![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/home_priv.PNG)
-*The RED delete button on the right can be used to delete the card. The GREEN add button under the card can be used to add a new card*
+*The RED delete button on the right can be used to delete the card. The GREEN add button can be used to add a new card*
 ![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/resume_exp_priv.PNG)
 ![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/resume_edu_priv.PNG)
 ![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/project_priv.PNG)
