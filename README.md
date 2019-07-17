@@ -22,9 +22,9 @@ A digital portfolio built using MEAN stack
 ![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/resume_exp_priv.PNG)
 ![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/resume_edu_priv.PNG)
 ![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/project_priv.PNG)
-*Experience, Education, and Project cards can be added via the GREEN add button, which will open a new page with empty card.*
+*Experience, Education, and Project cards can be added by entering appropriate informatino and clicking the GREEN submit button.*
 ![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/add_priv.PNG)
-*Experience, Education, and Project cards can be edited via the BLUE edit button, which will open that card in a new page.*
+*Experience, Education, and Project cards can be edited by updating the information and clicking the GREEN submit button.*
 ![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/edit_priv.PNG)
 *Skills can be added by typing it in the input field and pressing ENTER. Skill can be deleted by clicking on the appropriate tag.*
 ![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/resume_skill_priv.PNG)
