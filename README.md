@@ -3,7 +3,7 @@ A digital portfolio built using MEAN stack
 
 **INSTRUCTIONS**
 
-**Folder Structure
+**Folder Structure**
 
 --MEAN_kPatel
 
