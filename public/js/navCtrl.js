@@ -20,6 +20,9 @@ angular.module('navCtrl', []).controller('navController', function($scope, $time
           }
         });
         $('.sidenav').sidenav();
+        $('.sidenav').on('click', function(){
+          $('.sidenav').animate({left: '-500px'});
+        });
       })
     });
   }
