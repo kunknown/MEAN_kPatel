@@ -1,20 +1,38 @@
-<div class="navbar-fixed" ng-init="setNavbar()">
+<div ng-init="setNavbar()">
     <nav class="nav-extended grey darken-1" ng-click="setNavbar()">
         <div class="nav-wrapper">
-            <a href="/home" class="brand-logo left">Kaushal Patel</a>
-            <ul id="nav-mobile" class="right">
-                <li><a href="/home">Home</a></li>
-                <li><a href="/resume/experience">Resume</a></li>
-                <li><a href="/projects">Projects</a></li>
-                <li><a href="/contact">Contact</a></li>
+            <a href="/home" class="brand-logo">Kaushal Patel</a>
+            <a href="/home" class="sidenav-trigger" data-target="mobile-nav">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li class="main"><a href="/home">Home</a></li>
+                <li class="main"><a href="/resume/experience">Resume</a></li>
+                <li class="main"><a href="/projects">Projects</a></li>
+                <li class="main"><a href="/contact">Contact</a></li>
+                <li class="main"><a href="/login">Log In</a></li>
             </ul>
         </div>
         <div class="nav-content grey darken-1 right">
             <ul id="tabs_resume" class="tabs tabs-transparent">
-                <li class="tab"><a href="/resume/experience">EXPERIENCE</a></li>
-                <li class="tab"><a href="/resume/skills">SKILLS</a></li>
-                <li class="tab"><a href="/resume/education">EDUCATION</a></li>
+                <li class="tab main" ><a href="/resume/experience">EXPERIENCE</a></li>
+                <li class="tab main" ><a href="/resume/skills">SKILLS</a></li>
+                <li class="tab main" ><a href="/resume/education">EDUCATION</a></li>
             </ul>
         </div>
     </nav>
+
+    <ul class="sidenav" id="mobile-nav">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/resume/experience">Resume</a>
+            <ul>
+                <li><a href="/resume/experience">EXPERIENCE</a></li>
+                <li><a href="/resume/skills">SKILLS</a></li>
+                <li><a href="/resume/education">EDUCATION</a></li>
+            </ul>
+        </li>
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/login">Log In</a></li>
+    </ul>
 </div>

@@ -2,28 +2,51 @@
 const mongoose = require('mongoose');
 
 //mongoDB Config
-const mongoURL = 'mongodb://kPatel:kPatel123@ds347917.mlab.com:47917/mean-kpatel';
+const mongoURL = 'mongodb://ds347917.mlab.com:47917/mean-kpatel'; //kPatel:kPatel123
+
+//default user/pass
+username = 'readOnlyUser';
+password = 'roUser123';
 
 var expSchema, skillSchema, eduSchema, projectSchema, expModel, skillModel, eduModel, projectModel;
 
 //options
 options = {new: true, upsert: true};
 
-module.exports.init = () =>{
+module.exports.initConnection = (usr = username, pass = password) =>{
+    var error;
+    const options = {
+        user: usr,
+        pass: pass,
+        useNewUrlParser: true,
+        connectTimeoutMS: 300000,
+    }
+
     //mongoDB driver
     mongoose.set('useFindAndModify', false);
 
     //connect to mongoDB
-    mongoose.connect(mongoURL, {useNewUrlParser: true});
+    mongoose.connect(mongoURL, options)
+    .then(()=>{
+        //verify mongoDB connection
+        var db = mongoose.connection;
+        db.on('error', console.error.bind(console, 'connection error: '));
+        db.once('open', function(){
+        console.log('Successfully connected to mongoDB.')
+        ;});
+    },
+    (err)=>{
+        error = err;
+    });
+    return error;
+}
 
-    //verify mongoDB connection
-    var db = mongoose.connection;
-    db.on('error', console.error.bind(console, 'connection error: '));
-    db.once('open', function(){
-    console.log('Successfully connected to mongoDB.')
-    ;});
-
+//create schema & models
+module.exports.createSchemaModel = () => {
     //create Schemas
+    adminSchema = new mongoose.Schema({
+        admin: Boolean
+    });
     introSchema = new mongoose.Schema({
         title: String,
         details: String
@@ -54,14 +77,30 @@ module.exports.init = () =>{
     });
 
     //Create Models
+    adminModel = mongoose.model('Admin', adminSchema);
     introModel = mongoose.model('Introduction', introSchema);
     expModel = mongoose.model('Experience', expSchema);
     skillModel = mongoose.model('Skills', skillSchema);
     eduModel = mongoose.model('Education', eduSchema);
     projModel = mongoose.model('Projects', projectSchema);
+
+    //create admin record
+    adminModel.findOne({}).then((doc)=>{
+        if(!doc){
+            adminModel.create({admin: false});
+        }
+    });
+}
+
+//disconnect
+module.exports.closeConnection = () => {
+    return mongoose.connection.close();
 }
 
 //get record
+module.exports.getAdmin = async () => {
+    return await adminModel.findOne({});
+}
 module.exports.getIntro = async () =>{
     return await introModel.find({});
 }
@@ -79,6 +118,9 @@ module.exports.getProj = async () => {
 }
 
 //update record
+module.exports.updateAdmin = (data) => {
+    return adminModel.findOneAndUpdate({}, data, options);
+}
 module.exports.updateIntro = (data) =>{
     return introModel.findOneAndUpdate({_id: data._id}, data, options);
 }

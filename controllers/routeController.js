@@ -1,10 +1,55 @@
 //routerController.js
-var mongoose = require('./mongooseController');
 var nodemailer = require('./nodemailer');
 
 //export module
-module.exports = (app) => {
+module.exports = (app, mongoose) => {
+
+//log in/out
+app.post('/api/login/in', (req, res)=>{
+  console.log(req.body);
+  mongoose.closeConnection()
+  .then(()=>{
+    error = mongoose.initConnection(req.body.username, req.body.password);
+    if(!error){
+      mongoose.updateAdmin({admin: true}).then(doc=>{
+        console.log(doc);
+      });
+      res.status(200).send({result: 'Login Successful'});
+    }
+    else{
+      console.log(error);
+    }
+  })
+  .catch(error=>{
+    console.log(error);
+  });
+});
+app.get('/api/login/out', (req, res)=>{
+  mongoose.closeConnection()
+  .then(()=>{
+    error = mongoose.initConnection();
+    if(!error){
+      console.log('hitting');
+      mongoose.updateAdmin({admin: false}).then(doc=>{
+        console.log(doc);
+      });
+      res.status(200).send({result: 'Logout Successful'});
+    }
+    else{
+      console.log(error);
+    }
+  })
+  .catch(error=>{
+    console.log(error);
+  });
+});
+
   //get api
+  app.get('/api/admin', (req, res) => {
+    mongoose.getAdmin().then((doc)=>{
+      res.status(200).send({result: doc})
+    });
+  });
   app.get('/api/*/get(/:id)?', (req, res) => {
     path = req.path.toString();
     if(path.includes('home')){
@@ -34,31 +79,31 @@ module.exports = (app) => {
     }
   });
 
-  //edit  
+  //edit 
   app.post('/api/*/edit/*', (req, res) => {
     path = req.path.toString();
     if(path.includes('home')){
-      result = mongoose.updateIntro(req.body).then(() => {
+      mongoose.updateIntro(req.body).then(() => {
         res.status(200).send({});
       });
     }
     else if(path.includes('experience')){
-      result = mongoose.updateExp(req.body).then(() => {
+      mongoose.updateExp(req.body).then(() => {
         res.status(200).send({});
       });
     }
     else if(path.includes('skills')){
-      result = mongoose.updateSkill(req.body).then(() => {
+      mongoose.updateSkill(req.body).then(() => {
         res.status(200).send({});
       });
     }
     else if(path.includes('education')){
-      result = mongoose.updateEdu(req.body).then(() => {
+      mongoose.updateEdu(req.body).then(() => {
         res.status(200).send({});
       });
     }
     else if(path.includes('projects')){
-      result = mongoose.updateProj(req.body).then(() => {
+      mongoose.updateProj(req.body).then(() => {
         res.status(200).send({});
       });
     }

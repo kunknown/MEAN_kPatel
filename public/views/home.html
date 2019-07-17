@@ -1,6 +1,6 @@
 <div class="container col s12" ng-init="getData()">
     <div ng-repeat="intro in data">
-    <div ng-click="editItem(intro._id)" class="left btn-floating btn-medium waves-effect waves-light blue">
+    <div ng-show="admin" ng-click="editItem(intro._id)" class="left btn-floating btn-medium waves-effect waves-light blue">
             <i class="material-icons">edit</i>
     </div>            
     <h2 class="header center" id="{{intro._id}}">

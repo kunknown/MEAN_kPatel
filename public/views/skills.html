@@ -2,7 +2,7 @@
         <div class="row">
             <div class="card col s12 grey darken-4">
                 <div class="card-content">
-                    <div class="card-title white-text">
+                    <div ng-show="admin" class="card-title white-text">
                         <form ng-submit="addSkill()" name="skillForm">
                             <input ng-model="newSkill" type="text" name="newSkill" >
                             <input type="submit" value="" hidden>

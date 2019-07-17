@@ -1,0 +1,17 @@
+<div class="row" ng-init="getAdmin()">
+    <div class="col s12 l4"></div>
+    <div class="card col s12 l4 grey darken-4">
+        <form name="login" ng-submit="logIn()" class="white-text">
+            <input type="text" placeholder="Username" ng-model="data.username">
+            <input type="text" placeholder="Password" ng-model="data.password">
+            <input type="submit" value="" hidden>
+        </form>
+        <div ng-show="admin" class="left btn-floating btn-large waves-effect waves-light red" ng-click="logOut()">
+            <i class="material-icons">launch</i>
+        </div>
+        <div ng-hide="admin" class="right btn-floating btn-large waves-effect waves-light green" ng-click="logIn()">
+            <i class="material-icons">input</i>
+        </div>
+    </div>
+    <div class="col s12 l4"></div>
+</div>

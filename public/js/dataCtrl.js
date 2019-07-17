@@ -1,6 +1,6 @@
 //dataCtrl.js
 
-angular.module('dataCtrl', []).controller('dataController', function($scope, $http) {
+angular.module('dataCtrl', []).controller('dataController', function($scope, $http, $timeout) {
   function _setEdit(){
       pathName = angular.element(window)[0].location.pathname;
       $scope.homeEdit = false;
@@ -8,6 +8,7 @@ angular.module('dataCtrl', []).controller('dataController', function($scope, $ht
       $scope.skillEdit = false;
       $scope.eduEdit = false;
       $scope.projectEdit = false;
+
       if(pathName.includes('home')){
         $scope.homeEdit = true;
       }
@@ -23,17 +24,19 @@ angular.module('dataCtrl', []).controller('dataController', function($scope, $ht
       else if(pathName.includes('projects')){
         $scope.projectEdit = true;
       }
-      // console.log($scope.homeEdit);
-      // console.log($scope.expEdit);
-      // console.log($scope.skillEdit);
-      // console.log($scope.eduEdit);
-      // console.log($scope.projectEdit);
   }
   $scope.newItem = function(){
     _setEdit();
+    $scope.getAdmin();
     $scope.data = {};
   }
+  $scope.getAdmin = function(){
+    $http.get('/api/admin').then(function(response){
+      $scope.admin = response.data.result.admin;
+    });
+  }
   $scope.getData = function(id = 0) {
+    $scope.getAdmin();
       pathName = angular.element(window)[0].location.pathname.toString();
       if(id!==0){
         pathName = pathName.replace('/edit', '/get');
@@ -78,13 +81,25 @@ angular.module('dataCtrl', []).controller('dataController', function($scope, $ht
           'Content-Type': 'application/json'
         }
       }
-      pathname = angular.element(window)[0].location.pathname;
+      pathname = angular.element(window)[0].location.pathname.toString();
       $http.post('/api'+pathname, $scope.data, config)
       .then(function(response){
-        angular.element(window)[0].history.back();
+        if(pathname.includes('experience')){
+          path = '/resume/experience';
+        }
+        else if(pathname.includes('education')){
+          path = '/resume/education';
+        }
+        else if(pathname.includes('projects')){
+          path = '/projects';
+        }
+        else{
+          path = '/home';
+        }
+        angular.element(window)[0].location.href = path;
       },
-      function(response){
-        angular.element(window)[0].history.back();
+      function(error){
+        console.log(error);
       });
     }
     $scope.addSkill = function(){
@@ -112,6 +127,21 @@ angular.module('dataCtrl', []).controller('dataController', function($scope, $ht
       $http.post('/api'+pathname+'/mail', $scope.data)
       .then(function(response){
         angular.element(document)[0].forms['mail'].reset();
+      });
+    }
+    $scope.logIn = function(){
+      pathname = angular.element(window)[0].location.pathname;
+      $http.post('/api'+pathname+'/in', $scope.data)
+      .then(function(response){
+        angular.element(window)[0].location.href = '/home';
+      });
+    };
+
+    $scope.logOut = function(){
+      pathname = angular.element(window)[0].location.pathname;
+      $http.get('/api'+pathname+'/out',{})
+      .then(function(response){
+        angular.element(window)[0].location.href = '/home';
       });
     }
 });

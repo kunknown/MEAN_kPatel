@@ -16,7 +16,8 @@ app.use(express.static('./public'));
 //template engine
 
 //Connect to mongoDB
-mongoose.init();
+mongoose.initConnection('kPatel','kPatel123');
+mongoose.createSchemaModel();
 
 //Config port
 const port = 8080;
@@ -29,4 +30,4 @@ console.log(`Server is listening to ${port}.`);
 exports = module.exports = app;
 
 //routing
-require('./controllers/routeController')(app);
+require('./controllers/routeController')(app, mongoose);

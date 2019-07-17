@@ -13,7 +13,7 @@
                             <textarea ng-hide="skillEdit" id="details" ng-model="data.details">
                                 Summary...
                             </textarea>
-                            <div ng-click="saveData()" class="center">
+                            <div ng-show="admin" ng-click="saveData()" class="center">
                                 <a class="btn-floating btn-medium waves-effect waves-light green">
                                     <i class="material-icons">add</i>
                                     <input type="submit" value="">

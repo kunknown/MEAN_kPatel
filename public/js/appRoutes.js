@@ -7,41 +7,11 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
     templateUrl: 'views/editItem.html',
     controller: 'dataController'
   })
-  // .when('/resume/experience/edit', {
-  //   templateUrl: 'views/editItem.html',
-  //   controller: 'dataController'
-  // })
-  // .when('/resume/skills/edit', {
-  //   templateUrl: 'views/editItem.html',
-  //   controller: 'dataController'
-  // })
-  // .when('/resume/education/edit', {
-  //   templateUrl: 'views/editItem.html',
-  //   controller: 'dataController'
-  // })
-  // .when('/projects/edit', {
-  //   templateUrl: 'views/editItem.html',
-  //   controller: 'dataController'
-  // })
-
   //add
   .when('/:path*\/add', {
     templateUrl: 'views/addItem.html',
     controller: 'dataController'
   })
-  // .when('/resume/skills/add', {
-  //   templateUrl: 'views/addItem.html',
-  //   controller: 'dataController'
-  // })
-  // .when('/resume/education/add', {
-  //   templateUrl: 'views/addItem.html',
-  //   controller: 'dataController'
-  // })
-  // .when('/projects/add', {
-  //   templateUrl: 'views/addItem.html',
-  //   controller: 'dataController'
-  // })
-
   //home
   .when('/home', {
     templateUrl: 'views/home.html',
@@ -71,7 +41,15 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
   .when('/contact', {
     templateUrl: 'views/contact.html',
     controller: 'dataController'
+  })
+  //admin
+  .when('/login', {
+    templateUrl: 'views/login.html',
+    controller: 'dataController'
+  })
+  .when('/', {
+    redirectTo: '/home',
+    pathMatch: 'full'
   });
-
   $locationProvider.html5Mode(true);
 }]);

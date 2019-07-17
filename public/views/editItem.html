@@ -1,19 +1,19 @@
 <div class="container">
         <div class="row">
-                <form ng-init="getData('')" novalidate>
+                <form ng-init="getData('')" novalidate ng-model="data">
                     <div class="header">
-                        <input ng-hide="skillEdit" class="center" type="text" placeholder="Title" id="title" value="{{data.title}}">
+                        <input ng-model="data.title" ng-hide="skillEdit" class="center" type="text" placeholder="Title" id="title" value="{{data.title}}">
                     </div>
                     <div class="card grey darken-4">
                         <div class="card-content white-text">
-                            <input ng-show="expEdit || resumeEdit || eduEdit || projectEdit" type="text" placeholder="Institute, Location (City, State)" id="location" value={{data.location}}>
-                            <input ng-show="expEdit || resumeEdit || eduEdit" type="text" placeholder="Start - End (Month Year)" id="start_end_date" value={{data.date}}>
-                            <input ng-show="projectEdit" type="url" placeholder="URL" id="link" value={{data.link}}>
-                            <input ng-show="projectEdit" type="text" placeholder="Technology" id="technology" value={{data.technologies}}>
-                            <textarea ng-hide="skillEdit" contenteditable="true" id="details">
+                            <input ng-show="expEdit || resumeEdit || eduEdit" type="text" placeholder="Institute, Location (City, State)" id="location" ng-model="data.location" value={{data.location}}>
+                            <input ng-show="expEdit || resumeEdit || eduEdit" type="text" placeholder="Start - End (Month Year)" id="start_end_date" ng-model="data.date" value={{data.date}}>
+                            <input ng-show="projectEdit" type="url" placeholder="URL" id="link" ng-model="data.link" value={{data.link}}>
+                            <input ng-show="projectEdit" type="text" placeholder="Technology" id="technology" ng-model="data.technology" value={{data.technology}}>
+                            <textarea ng-model="data.details" ng-hide="skillEdit" contenteditable="true" id="details">
                                 {{data.details}}
                             </textarea>
-                            <div ng-click="saveData()" class="center">
+                            <div ng-show="admin" ng-click="saveData()" class="center">
                                 <a class="btn-floating btn-medium waves-effect waves-light green">
                                     <i class="material-icons">add</i>
                                     <input type="submit" value="">
