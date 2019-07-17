@@ -5,9 +5,13 @@ A digital portfolio built using MEAN stack
 
 
 **FEATURES**
+
 **Regular User**
+**
 ![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/home_reg.PNG)
+**
 ![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/resume_exp_reg.PNG)
+**
 ![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/resume_skill_reg.PNG)
 ![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/resume_edu_reg.PNG)
 ![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/project_reg.PNG)
