@@ -1,5 +1,8 @@
 body{
     background-color: #eeeeee;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 main{
     margin-top: 100px;
@@ -20,4 +23,8 @@ textarea{
 
 div.skills:hover {
     text-decoration: line-through; 
+}
+
+main {
+    flex: 1 0 auto;
 }

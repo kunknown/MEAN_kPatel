@@ -23,11 +23,9 @@
     <script src="js/navCtrl.js"></script>
 
   </head>
-  <body>
-    <div ng-app="app">
-      <div ng-include="'/views/navbar.html'" ng-controller="navController"></div>
+  <body ng-app="app">
+      <header ng-include="'/views/navbar.html'" ng-controller="navController"></header>
       <main ng-view></main>
-      <div ng-include="'/views/footer.html'"></div>
-    </div>
+      <footer class="page-footer grey darken-4" ng-include="'/views/footer.html'"></footer>
   </body>
 </html>
