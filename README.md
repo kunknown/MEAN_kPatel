@@ -54,35 +54,22 @@ module.exports = {
 
 **FEATURES**
 
-**Regular User**
+**Read Only Mode**
 
 *All the pages will be read-only (cannot edit, add, or delete content of the page) for regular user.*
-![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/home_reg.PNG)
-![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/resume_exp_reg.PNG)
-![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/resume_skill_reg.PNG)
-![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/resume_edu_reg.PNG)
-![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/project_reg.PNG)
 *Regular user can send an email to linked account (config.js) by filling in the appripriate information & pressing ENTER.*
-![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/contact_reg.PNG)
 *Login page can be used to switch to privilaged user by clicking the GREEN log-in button after entering appropriate username & password (specified in the config.js file).*
-![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/login_reg.PNG)
+![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/readOnly-mode.PNG)
 
 **Privilaged User**
 
 *All the pages will be editable for the privilaged user. The BLUE edit button on the left can be used to edit the content of the card.*
-![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/home_priv.PNG)
 *The RED delete button on the right can be used to delete the card. The GREEN add button can be used to add a new card.*
-![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/resume_exp_priv.PNG)
-![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/resume_edu_priv.PNG)
-![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/project_priv.PNG)
 *Experience, Education, and Project cards can be added by entering appropriate informatino and clicking the GREEN submit button.*
-![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/add_priv.PNG)
 *Experience, Education, and Project cards can be edited by updating the information and clicking the GREEN submit button.*
-![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/edit_priv.PNG)
 *Skills can be added by typing it in the input field and pressing ENTER. Skill can be deleted by clicking on the appropriate tag.*
-![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/resume_skill_priv.PNG)
 *Login page can be used to switch back to regular user by clicking the RED log-out button.*
-![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/login_priv.PNG)
+![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/edit_mode.PNG)
 
 **Responsive UI**
 
