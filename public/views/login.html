@@ -2,16 +2,21 @@
     <div class="col s12 l4"></div>
     <div class="card col s12 l4 grey darken-4">
         <form name="login" ng-submit="logIn()" class="white-text">
-            <input type="text" placeholder="Username" ng-model="data.username">
-            <input type="text" placeholder="Password" ng-model="data.password">
-            <input type="submit" value="" hidden>
+            <div class="input-field">
+                <label for="username">Username</label>
+                <input type="text" id="username" ng-model="data.username">
+            </div>
+            <div class="input-field">
+                <label for="password">Password</label>
+                <input type="password" id="password" ng-model="data.password">
+            </div>
+            <div class="card-action">
+                <input type="submit" value="" hidden>
+                <div class="btn-floating btn-large waves-effect waves-light green" ng-click="logIn()">
+                    <i class="material-icons">input</i>
+                </div>
+            </div>
         </form>
-        <div ng-show="admin" class="left btn-floating btn-large waves-effect waves-light red" ng-click="logOut()">
-            <i class="material-icons">launch</i>
-        </div>
-        <div ng-hide="admin" class="right btn-floating btn-large waves-effect waves-light green" ng-click="logIn()">
-            <i class="material-icons">input</i>
-        </div>
     </div>
     <div class="col s12 l4"></div>
 </div>

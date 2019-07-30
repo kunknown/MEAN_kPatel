@@ -1,6 +1,10 @@
 //resumeCtrl.js
 
-angular.module('navCtrl', []).controller('navController', function($scope, $timeout) {
+angular.module('navCtrl', []).controller('navController', ['$scope', '$timeout', '$http', 'adminStatus', function($scope, $timeout, $http, adminStatus) {
+  var status = adminStatus.getAdminStatus;
+  status.then(function(response){
+    $scope.admin = response.data.result.admin;
+  });
   $scope.setNavbar = function(){
     angular.element(document).ready(function(){
       $timeout(function(){
@@ -26,5 +30,11 @@ angular.module('navCtrl', []).controller('navController', function($scope, $time
       })
     });
   }
-});
+  $scope.logOut = function(){
+    $http.get('/api/logout',{})
+    .then(function(response){
+      angular.element(window)[0].location.href = '/home';
+    });
+  }
+}]);
   

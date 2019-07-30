@@ -1,23 +1,36 @@
 <div class="container">
         <div class="row">
-                <form ng-init="newItem()" novalidate>
-                    <div class="header">
-                        <input ng-hide="skillEdit" class="center" type="text" placeholder="Title" id="title" ng-model="data.title">
+                <form ng-init="newItem()" novalidate ng-model="data">
+                    <div class="header input-field">
+                        <label ng-if="!data.title" for="title">Title</label>
+                        <input ng-model="data.title" ng-hide="skillEdit" class="center" type="text" id="title">
                     </div>
                     <div class="card grey darken-4">
                         <div class="card-content white-text">
-                            <input ng-show="expEdit || resumeEdit || eduEdit" type="text" placeholder="Institute, Location (City, State)" id="location" ng-model="data.location">
-                            <input ng-show="expEdit || resumeEdit || eduEdit" type="text" placeholder="Start - End (Month Year)" id="start_end_date" ng-model="data.date">
-                            <input ng-show="projectEdit" type="url" placeholder="URL" id="link" ng-model="data.link">
-                            <input ng-show="projectEdit" type="text" placeholder="Technology" id="technology" ng-model="data.technology">
-                            <textarea ng-hide="skillEdit" id="details" ng-model="data.details">
-                                Summary...
-                            </textarea>
-                            <div ng-show="admin" ng-click="saveData()" class="center">
-                                <a class="btn-floating btn-medium waves-effect waves-light green">
-                                    <i class="material-icons">add</i>
-                                    <input type="submit" value="">
-                                </a>
+                            <div class="input-field" ng-show="expEdit || eduEdit" >
+                                <label ng-if="!data.location" for="location">Institute, Location (City, State)</label>
+                                <input type="text" id="location" ng-model="data.location">
+                            </div>
+                            <div ng-show="expEdit || eduEdit" class="input-field">
+                                <label ng-if="!data.date" for="date">Start - End (Month Year)</label>
+                                <input type="text" id="start_end_date" ng-model="data.date">
+                            </div>
+                            <div ng-show="projectEdit" class="input-field">
+                                <label ng-if="!data.link" for="link">URL (https://www.example.com)</label>
+                                <input type="url" id="link" ng-model="data.link">
+                            </div>
+                            <div ng-show="projectEdit" class="input-field">
+                                <label ng-if="!data.technology" for="technology">Technology</label>
+                                <input type="text" id="technology" ng-model="data.technology">
+                            </div>
+                            <div ng-model="data.details" class="input-field">
+                                <label ng-if="!data.details"for="details">Details</label>
+                                <textarea ng-hide="skillEdit" id="details" class="materialize-textarea" ng-model="data.details"></textarea>
+                            </div>
+                            <div class="card-action">
+                                <div class="center">
+                                    <button type="submit" class="btn-large waves-effect waves-light green" ng-click="saveData()">Submit</button>
+                                </div>
                             </div>
                         </div>
                     </div>

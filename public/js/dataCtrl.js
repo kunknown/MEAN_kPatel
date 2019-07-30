@@ -1,8 +1,8 @@
 //dataCtrl.js
 
-angular.module('dataCtrl', []).controller('dataController', function($scope, $http, $timeout) {
+angular.module('dataCtrl', []).controller('dataController', ['$scope', '$http', '$location', 'adminStatus', function($scope, $http, $location, adminStatus) {
   function _setEdit(){
-      pathName = angular.element(window)[0].location.pathname;
+      pathName = $location.url();
       $scope.homeEdit = false;
       $scope.expEdit = false;
       $scope.skillEdit = false;
@@ -25,19 +25,21 @@ angular.module('dataCtrl', []).controller('dataController', function($scope, $ht
         $scope.projectEdit = true;
       }
   }
+  function _getAdmin(){
+    var status = adminStatus.getAdminStatus;
+    status.then(function(response){
+      $scope.admin = response.data.result.admin;
+    })
+  }
   $scope.newItem = function(){
     _setEdit();
-    $scope.getAdmin();
+    _getAdmin();
     $scope.data = {};
   }
-  $scope.getAdmin = function(){
-    $http.get('/api/admin').then(function(response){
-      $scope.admin = response.data.result.admin;
-    });
-  }
+  
   $scope.getData = function(id = 0) {
-    $scope.getAdmin();
-      pathName = angular.element(window)[0].location.pathname.toString();
+    _getAdmin();
+      pathName = $location.url();
       if(id!==0){
         pathName = pathName.replace('/edit', '/get');
         pathNameArr = pathName.split('/');
@@ -52,7 +54,7 @@ angular.module('dataCtrl', []).controller('dataController', function($scope, $ht
           $scope.data = response.data.result;
         }
         else{
-          $scope.data = response.data.result[0];
+          $scope.data = response.data.result;
         }
       },
       function(response){
@@ -61,16 +63,17 @@ angular.module('dataCtrl', []).controller('dataController', function($scope, $ht
       _setEdit();
     }
     $scope.editItem = function(id){
-      pathName = angular.element(window)[0].location.pathname.toString(); //href = '/resume/experience/add';
-      angular.element(window)[0].location.href = pathName + '/edit/'+id;
+      pathName = $location.url(); //href = '/resume/experience/add';
+      $location.url(pathName + '/edit/'+id);
+
     }
     $scope.addItem = function(){
-      pathName = angular.element(window)[0].location.pathname.toString();
-      angular.element(window)[0].location.href = pathName + '/add';
+      pathName = $location.url();
+      $location.url(pathName + '/add');
     }
     $scope.deleteItem = function(id){
       if($scope.admin){
-        pathName = angular.element(window)[0].location.pathname;
+        pathName = $location.url();
         $http.delete('/api' + pathName + '/delete/'+id)
         .then(function(){
           $scope.getData();
@@ -83,7 +86,7 @@ angular.module('dataCtrl', []).controller('dataController', function($scope, $ht
           'Content-Type': 'application/json'
         }
       }
-      pathname = angular.element(window)[0].location.pathname.toString();
+      pathname = $location.url();
       $http.post('/api'+pathname, $scope.data, config)
       .then(function(response){
         if(pathname.includes('experience')){
@@ -98,7 +101,7 @@ angular.module('dataCtrl', []).controller('dataController', function($scope, $ht
         else{
           path = '/home';
         }
-        angular.element(window)[0].location.href = path;
+        $location.url(path);
       },
       function(error){
         console.log(error);
@@ -113,7 +116,7 @@ angular.module('dataCtrl', []).controller('dataController', function($scope, $ht
           'Content-Type': 'application/json'
         }
       }
-      pathname = angular.element(window)[0].location.pathname;
+      pathname = $location.url();
       $http.post('/api'+pathname+'/add', $scope.data, config)
       .then(function(response){
         angular.element(document)[0].forms['skillForm'].newSkill.value = '';
@@ -122,28 +125,15 @@ angular.module('dataCtrl', []).controller('dataController', function($scope, $ht
       function(response){
         
       });
-      
     }
     $scope.sendMail = function(){
-      pathname = angular.element(window)[0].location.pathname;
+      pathname = $location.url();
       $http.post('/api'+pathname+'/mail', $scope.data)
       .then(function(response){
         angular.element(document)[0].forms['mail'].reset();
       });
     }
     $scope.logIn = function(){
-      pathname = angular.element(window)[0].location.pathname;
-      $http.post('/api'+pathname+'/in', $scope.data)
-      .then(function(response){
-        angular.element(window)[0].location.href = '/home';
-      });
+      adminStatus.setAdminStatus($scope.data);
     };
-
-    $scope.logOut = function(){
-      pathname = angular.element(window)[0].location.pathname;
-      $http.get('/api'+pathname+'/out',{})
-      .then(function(response){
-        angular.element(window)[0].location.href = '/home';
-      });
-    }
-});
+}]);

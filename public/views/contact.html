@@ -3,12 +3,29 @@
             <div class="col l2"></div>
             <div class="col s12 l8">
                 <form ng-model="data" name="mail" ng-submit="sendMail()">
-                    <input type="text" placeholder="First Name" ng-model="data.firstname">
-                    <input type="text" placeholder="Last Name" ng-model="data.lastname">
-                    <input type="text" placeholder="Company" ng-model="data.company">
-                    <input type="email" placeholder="Email" ng-model="data.email">
-                    <input type="text" placeholder="Message" ng-model="data.message">
-                    <input type="submit" value="" hidden>
+                    <div class="input-field">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" ng-model="data.firstname">
+                    </div>
+                    <div class="input-field">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" ng-model="data.lastname">
+                    </div>
+                    <div class="input-field">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" ng-model="data.company">
+                    </div>
+                    <div class="input-field">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" ng-model="data.email">
+                    </div>
+                    <div class="input-field">
+                        <label for="message">Message</label>
+                        <textarea id="message" class="materialize-textarea" ng-model="data.message"></textarea>
+                    </div>
+                    <div class="center">
+                        <button class="btn-large btn-floating waves-effect waves-light green">Send</button>
+                    </div>
                 </form>
             </div>
             <div class="col l2"></div>

@@ -105,16 +105,25 @@ module.exports.getAdmin = async () => {
 module.exports.getIntro = async () =>{
     return await introModel.find({});
 }
-module.exports.getExp = async () => {
+module.exports.getExp = async (id) => {
+    if(id){
+        return await expModel.findOne({_id: id})
+    }
     return await expModel.find({});
 }
 module.exports.getSkill = async () => {
     return await skillModel.find({});
 }
-module.exports.getEdu = async () => {
+module.exports.getEdu = async (id) => {
+    if(id){
+        return await eduModel.findOne({_id: id});
+    }
     return await eduModel.find({});
 }
 module.exports.getProj = async () => {
+    if(id){
+        return await projModel.findOne({_id: id});
+    }
     return await projModel.find({});
 }
 

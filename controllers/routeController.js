@@ -23,7 +23,7 @@ app.post('/api/login/in', (req, res)=>{
     console.log(error);
   });
 });
-app.get('/api/login/out', (req, res)=>{
+app.get('/api/logout', (req, res)=>{
   mongoose.closeConnection()
   .then(()=>{
     error = mongoose.initConnection();
@@ -49,13 +49,14 @@ app.get('/api/login/out', (req, res)=>{
   });
   app.get('/api/*/get(/:id)?', (req, res) => {
     path = req.path.toString();
+    id = req.params.id;
     if(path.includes('home')){
       mongoose.getIntro().then((doc) => {
         res.status(200).send({result: doc});
       });
     }
     else if(path.includes('experience')){
-      mongoose.getExp().then((doc) => {
+      mongoose.getExp(id).then((doc) => {
         res.status(200).send({result: doc});
       });
     }
@@ -65,12 +66,12 @@ app.get('/api/login/out', (req, res)=>{
       });
     }
     else if(path.includes('education')){
-      mongoose.getEdu().then((doc) => {
+      mongoose.getEdu(id).then((doc) => {
         res.status(200).send({result: doc});
       });
     }
     else if(path.includes('projects')){
-      mongoose.getProj().then((doc) => {
+      mongoose.getProj(id).then((doc) => {
         res.status(200).send({result: doc});
       });
     }
