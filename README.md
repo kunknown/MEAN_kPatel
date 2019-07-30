@@ -59,7 +59,7 @@ module.exports = {
 *All the pages will be read-only (cannot edit, add, or delete content of the page) for regular user.*
 *Regular user can send an email to linked account (config.js) by filling in the appripriate information & pressing ENTER.*
 *Login page can be used to switch to privilaged user by clicking the GREEN log-in button after entering appropriate username & password (specified in the config.js file).*
-![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/readOnly-mode.PNG)
+![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/readOnly_mode.png)
 
 **Privilaged User**
 
@@ -69,10 +69,9 @@ module.exports = {
 *Experience, Education, and Project cards can be edited by updating the information and clicking the GREEN submit button.*
 *Skills can be added by typing it in the input field and pressing ENTER. Skill can be deleted by clicking on the appropriate tag.*
 *Login page can be used to switch back to regular user by clicking the RED log-out button.*
-![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/edit_mode.PNG)
+![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/edit_mode.png)
 
 **Responsive UI**
 
 *The app is responsive and the UI of both, the menu & the page, will change accordingly.*
-![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/mobile_home_reg.PNG)
-![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/mobile_nav.PNG)
+![](https://github.com/kunknown/MEAN_kPatel/blob/master/public/readmeContent/mobile.png)
