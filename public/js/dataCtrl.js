@@ -2,7 +2,7 @@
 
 angular.module('dataCtrl', []).controller('dataController', ['$scope', '$http', '$location', 'adminStatus', function($scope, $http, $location, adminStatus) {
   function _setEdit(){
-      pathName = $location.url();
+      var pathName = $location.url();
       $scope.homeEdit = false;
       $scope.expEdit = false;
       $scope.skillEdit = false;
@@ -42,7 +42,7 @@ angular.module('dataCtrl', []).controller('dataController', ['$scope', '$http', 
       var pathName = $location.url();
       if(id!==0){
         pathName = pathName.replace('/edit', '/get');
-        pathNameArr = pathName.split('/');
+        var pathNameArr = pathName.split('/');
         id = pathNameArr[pathNameArr.length-1];
       }
       else{
@@ -63,17 +63,17 @@ angular.module('dataCtrl', []).controller('dataController', ['$scope', '$http', 
       _setEdit();
     }
     $scope.editItem = function(id){
-      pathName = $location.url(); //href = '/resume/experience/add';
+      var pathName = $location.url(); //href = '/resume/experience/add';
       $location.url(pathName + '/edit/'+id);
 
     }
     $scope.addItem = function(){
-      pathName = $location.url();
+      var pathName = $location.url();
       $location.url(pathName + '/add');
     }
     $scope.deleteItem = function(id){
       if($scope.admin){
-        pathName = $location.url();
+        var pathName = $location.url();
         $http.delete('/api' + pathName + '/delete/'+id)
         .then(function(){
           $scope.getData();
@@ -81,12 +81,13 @@ angular.module('dataCtrl', []).controller('dataController', ['$scope', '$http', 
       }
     }
     $scope.saveData = function(){
-      config = {
+      var config = {
         headers: {
           'Content-Type': 'application/json'
         }
       }
-      pathname = $location.url();
+      var pathname = $location.url();
+      var path = '/home';
       $http.post('/api'+pathname, $scope.data, config)
       .then(function(response){
         if(pathname.includes('experience')){
@@ -102,21 +103,20 @@ angular.module('dataCtrl', []).controller('dataController', ['$scope', '$http', 
           path = '/home';
         }
         $location.url(path);
-      },
-      function(error){
-        console.log(error);
+      }).catch(function(err){
+        console.log(err);
       });
     }
     $scope.addSkill = function(){
       $scope.data = {
         name: $scope.newSkill
       };
-      config = {
+      var config = {
         headers: {
           'Content-Type': 'application/json'
         }
       }
-      pathname = $location.url();
+      var pathname = $location.url();
       $http.post('/api'+pathname+'/add', $scope.data, config)
       .then(function(response){
         angular.element(document)[0].forms['skillForm'].newSkill.value = '';
@@ -127,7 +127,7 @@ angular.module('dataCtrl', []).controller('dataController', ['$scope', '$http', 
       });
     }
     $scope.sendMail = function(){
-      pathname = $location.url();
+      var pathname = $location.url();
       $http.post('/api'+pathname+'/mail', $scope.data)
       .then(function(response){
         angular.element(document)[0].forms['mail'].reset();
@@ -136,4 +136,5 @@ angular.module('dataCtrl', []).controller('dataController', ['$scope', '$http', 
     $scope.logIn = function(){
       adminStatus.setAdminStatus($scope.data);
     };
+
 }]);

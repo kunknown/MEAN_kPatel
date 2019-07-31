@@ -47,9 +47,6 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
     templateUrl: 'views/login.html',
     controller: 'dataController'
   })
-  .when('/', {
-    redirectTo: '/home',
-    pathMatch: 'full'
-  });
+  .otherwise('/home');
   $locationProvider.html5Mode(true);
 }]);

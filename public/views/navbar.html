@@ -1,11 +1,11 @@
 <div ng-init="setNavbar()">
-    <nav class="nav-extended grey darken-1" ng-click="setNavbar()">
+    <nav class="nav-extended grey darken-1">
         <div class="nav-wrapper">
-            <a ng-href="/home" class="brand-logo">Kaushal Patel</a>
-            <a ng-href="/home" class="sidenav-trigger" data-target="mobile-nav">
+            <a ng-href="/home" class="brand-logo" ng-click="setNavbar()">Kaushal Patel</a>
+            <a class="sidenav-trigger" data-target="mobile-demo">
                 <i class="material-icons">menu</i>
             </a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <ul id="nav-mobile" class="right hide-on-med-and-down" ng-click="setNavbar()">
                 <li class="main"><a ng-href="/home">Home</a></li>
                 <li class="main"><a ng-href="/resume/experience">Resume</a></li>
                 <li class="main"><a ng-href="/projects">Projects</a></li>
@@ -16,7 +16,7 @@
                 </li>
             </ul>
         </div>
-        <div class="nav-content grey darken-1 right">
+        <div class="nav-content grey darken-1 right" ng-click="setNavbar()">
             <ul id="tabs_resume" class="tabs tabs-transparent">
                 <li class="tab main" ><a ng-href="/resume/experience">EXPERIENCE</a></li>
                 <li class="tab main" ><a ng-href="/resume/skills">SKILLS</a></li>
@@ -25,13 +25,13 @@
         </div>
     </nav>
 
-    <ul class="sidenav" id="mobile-nav" ng-click="hideMenu()">
+    <ul class="sidenav" id="mobile-demo" ng-click="setNavbar()">
         <li><a ng-href="/home">Home</a></li>
-        <li><a ng-href="/resume/experience">Resume</a>
+        <li><a>RESUME</a>
             <ul>
-                <li><a ng-href="/resume/experience">EXPERIENCE</a></li>
-                <li><a ng-href="/resume/skills">SKILLS</a></li>
-                <li><a ng-href="/resume/education">EDUCATION</a></li>
+                <li><a ng-href="/resume/experience">Experience</a></li>
+                <li><a ng-href="/resume/skills">Skills</a></li>
+                <li><a ng-href="/resume/education">Education</a></li>
             </ul>
         </li>
         <li><a ng-href="/projects">Projects</a></li>

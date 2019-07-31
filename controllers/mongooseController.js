@@ -102,7 +102,10 @@ module.exports.closeConnection = () => {
 module.exports.getAdmin = async () => {
     return await adminModel.findOne({});
 }
-module.exports.getIntro = async () =>{
+module.exports.getIntro = async (id) =>{
+    if(id){
+        return await introModel.findOne({_id: id});
+    }
     return await introModel.find({});
 }
 module.exports.getExp = async (id) => {

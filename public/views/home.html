@@ -1,18 +1,20 @@
 <div class="container col s12" ng-init="getData()">
     <div ng-repeat="intro in data">
-    <div ng-show="admin" ng-click="editItem(intro._id)" class="left btn-floating btn-medium waves-effect waves-light blue">
-            <i class="material-icons">edit</i>
-    </div>            
-    <h2 class="header center" id="{{intro._id}}">
-            {{intro.title}}
-    </h2>
-    <div class="card horizontal">
-        <div class="card-image">
-            <img ng-src="../assets/kush_cartoon.png " alt="Kaushal Patel">
+        <div ng-show="admin" ng-click="editItem(intro._id)" class="left btn-floating btn-medium waves-effect waves-light blue">
+                <i class="material-icons">edit</i>
+        </div>            
+        <h2 class="header center" id="{{intro._id}}">
+                {{intro.title}}
+        </h2>
+        <div class="card horizontal">
+            <div class="card-image valign-wrapper">
+                <img ng-src="../assets/kush_cartoon.png " alt="Kaushal Patel">
+            </div>
+            <div class="card-content">
+                <h6>
+                    {{intro.details}}
+                </h6>
+            </div>
         </div>
-        <h6>
-            {{intro.details}}
-        </h6>
-    </div>
     </div>
 </div>

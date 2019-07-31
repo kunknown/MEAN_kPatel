@@ -51,7 +51,7 @@ app.get('/api/logout', (req, res)=>{
     path = req.path.toString();
     id = req.params.id;
     if(path.includes('home')){
-      mongoose.getIntro().then((doc) => {
+      mongoose.getIntro(id).then((doc) => {
         res.status(200).send({result: doc});
       });
     }

@@ -24,9 +24,6 @@ angular.module('navCtrl', []).controller('navController', ['$scope', '$timeout',
           }
         });
         $('.sidenav').sidenav();
-        $('.sidenav').on('click', function(){
-          $('.sidenav').animate({left: '-500px'});
-        });
       })
     });
   }

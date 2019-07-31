@@ -23,11 +23,9 @@
                                 <label ng-if="data.technology===''" for="technology">Technology</label>
                                 <input type="text" id="technology" ng-model="data.technology" value={{data.technology}}>
                             </div>
-                            <div ng-model="data.details" class="input-field">
+                            <div class="input-field">
                                 <label ng-if="data.details===''"for="details">Details</label>
-                                <textarea ng-hide="skillEdit" id="details" class="materialize-textarea">
-                                    {{data.details}}
-                                </textarea>
+                                <textarea ng-hide="skillEdit" id="details" class="materialize-textarea" ng-model="data.details">{{data.details}}</textarea>
                             </div>
                             <div class="card-action">
                                 <div class="center">
