@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('authService', []).factory('adminStatus', ['$http', '$location', function($http, $location){
     return{
         getAdminStatus: $http.get('/api/admin'),

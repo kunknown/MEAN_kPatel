@@ -4,6 +4,7 @@
   "description": "A personal website implented with MEAN stack",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,6 +25,7 @@
   },
   "homepage": "https://github.com/kunknown/MEAN_kPatel#readme",
   "dependencies": {
+    "@google-cloud/storage": "^3.0.4",
     "angular": "^1.7.8",
     "angular-route": "^1.7.8",
     "body-parser": "^1.19.0",

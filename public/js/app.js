@@ -1,3 +1,3 @@
-//public/js/app.js
+'use strict';
 
 angular.module('app', ['ngRoute', 'appRoutes','dataCtrl', 'navCtrl', 'authService']);

@@ -1,6 +1,6 @@
-//resumeCtrl.js
+'use strict';
 
-angular.module('navCtrl', []).controller('navController', ['$scope', '$timeout', '$http', 'adminStatus', function($scope, $timeout, $http, adminStatus) {
+angular.module('navCtrl', []).controller('navController', ['$scope', '$timeout', '$http', '$location', 'adminStatus', function($scope, $timeout, $http, $location, adminStatus) {
   var status = adminStatus.getAdminStatus;
   status.then(function(response){
     $scope.admin = response.data.result.admin;
@@ -8,7 +8,7 @@ angular.module('navCtrl', []).controller('navController', ['$scope', '$timeout',
   $scope.setNavbar = function(){
     angular.element(document).ready(function(){
       $timeout(function(){
-        pathName = angular.element(window)[0].location.pathname;
+        var pathName = $location.url();
         if(pathName.includes('resume')){
           angular.element("#tabs_resume")[0].style.display="";
         }

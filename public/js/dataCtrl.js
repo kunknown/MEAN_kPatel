@@ -1,4 +1,4 @@
-//dataCtrl.js
+'use strict';
 
 angular.module('dataCtrl', []).controller('dataController', ['$scope', '$http', '$location', 'adminStatus', function($scope, $http, $location, adminStatus) {
   function _setEdit(){
@@ -39,7 +39,7 @@ angular.module('dataCtrl', []).controller('dataController', ['$scope', '$http', 
   
   $scope.getData = function(id = 0) {
     _getAdmin();
-      pathName = $location.url();
+      var pathName = $location.url();
       if(id!==0){
         pathName = pathName.replace('/edit', '/get');
         pathNameArr = pathName.split('/');

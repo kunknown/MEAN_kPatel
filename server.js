@@ -20,7 +20,7 @@ mongoose.initConnection();
 mongoose.createSchemaModel();
 
 //Config port
-const port = 8080;
+const port = (process.env.PORT || 8080);
 
 //Listen to port
 app.listen(port);
