@@ -48,6 +48,7 @@ angular.module('dataCtrl', []).controller('dataController', ['$scope', '$http', 
       else{
         pathName += '/get';
       }
+      
       $http.get('/api'+pathName)
       .then(function(response){
         if(id===0){
@@ -56,9 +57,6 @@ angular.module('dataCtrl', []).controller('dataController', ['$scope', '$http', 
         else{
           $scope.data = response.data.result;
         }
-      },
-      function(response){
-        console.log(response.status + ' ' + response.statusText);
       });
       _setEdit();
     }
@@ -136,5 +134,12 @@ angular.module('dataCtrl', []).controller('dataController', ['$scope', '$http', 
     $scope.logIn = function(){
       adminStatus.setAdminStatus($scope.data);
     };
-
+    $scope.adjustHeight = function($event){
+      var e = $event;
+      e.currentTarget.childNodes.forEach(function(ele){
+        if(ele.type==='textarea'){
+          ele.style.height = (ele.scrollHeight) + 'px';
+        };
+      });
+    }
 }]);

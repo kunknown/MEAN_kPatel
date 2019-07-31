@@ -11,14 +11,14 @@
                     {{proj.title}}
                 </h4>
                 <div class="card grey darken-4">
-                    <div class="card-content white-text">
+                    <div class="card-content white-text" ng-click="adjustHeight($event)">
                         <div class="card-title">
                                 <a href="{{proj.link}}" target="_blank">link</a>
                         </div>
                         <div>
                             {{proj.technology}}
                         </div>
-                        <textarea class="materialize-textarea">{{proj.details}}</textarea>
+                        <textarea class="materialize-textarea" readonly>{{proj.details}}</textarea>
                     </div>
                 </div>
             </div>

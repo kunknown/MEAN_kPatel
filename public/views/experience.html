@@ -11,14 +11,14 @@
                     {{job.title}}
                 </h5>
                 <div class="card grey darken-4">
-                    <div class="card-content white-text">
+                    <div class="card-content white-text" ng-click="adjustHeight($event)">
                         <div class="card-title">
                             {{job.location}}
                         </div>
                         <div>
                             {{job.date}}
                         </div>
-                        <textarea class="materialize-textarea">{{job.details}}</textarea>
+                        <textarea class="materialize-textarea" readonly>{{job.details}}</textarea>
                     </div>
                 </div>
             </div>
