@@ -50,12 +50,7 @@ app.get('/api/logout', (req, res)=>{
   app.get('/api/*/get(/:id)?', (req, res) => {
     path = req.path.toString();
     id = req.params.id;
-    if(path.includes('home')){
-      mongoose.getIntro(id).then((doc) => {
-        res.status(200).send({result: doc});
-      });
-    }
-    else if(path.includes('experience')){
+    if(path.includes('experience')){
       mongoose.getExp(id).then((doc) => {
         res.status(200).send({result: doc});
       });
@@ -72,6 +67,11 @@ app.get('/api/logout', (req, res)=>{
     }
     else if(path.includes('projects')){
       mongoose.getProj(id).then((doc) => {
+        res.status(200).send({result: doc});
+      });
+    }
+    else{
+      mongoose.getIntro(id).then((doc) => {
         res.status(200).send({result: doc});
       });
     }

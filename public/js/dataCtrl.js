@@ -9,7 +9,7 @@ angular.module('dataCtrl', []).controller('dataController', ['$scope', '$http', 
       $scope.eduEdit = false;
       $scope.projectEdit = false;
 
-      if(pathName.includes('home')){
+      if(pathName==='/'){
         $scope.homeEdit = true;
       }
       else if(pathName.includes('experience')){
@@ -40,6 +40,7 @@ angular.module('dataCtrl', []).controller('dataController', ['$scope', '$http', 
   $scope.getData = function(id = 0) {
     _getAdmin();
       var pathName = $location.url();
+      if(pathName==='/') pathName = '/home'
       if(id!==0){
         pathName = pathName.replace('/edit', '/get');
         var pathNameArr = pathName.split('/');
@@ -48,7 +49,6 @@ angular.module('dataCtrl', []).controller('dataController', ['$scope', '$http', 
       else{
         pathName += '/get';
       }
-      
       $http.get('/api'+pathName)
       .then(function(response){
         if(id===0){
@@ -62,6 +62,7 @@ angular.module('dataCtrl', []).controller('dataController', ['$scope', '$http', 
     }
     $scope.editItem = function(id){
       var pathName = $location.url(); //href = '/resume/experience/add';
+      if(pathName==='/') pathName = '/home';
       $location.url(pathName + '/edit/'+id);
 
     }
@@ -85,7 +86,8 @@ angular.module('dataCtrl', []).controller('dataController', ['$scope', '$http', 
         }
       }
       var pathname = $location.url();
-      var path = '/home';
+      if(pathname==='/') pathname = '/home';
+      var path = '/';
       $http.post('/api'+pathname, $scope.data, config)
       .then(function(response){
         if(pathname.includes('experience')){
@@ -98,7 +100,7 @@ angular.module('dataCtrl', []).controller('dataController', ['$scope', '$http', 
           path = '/projects';
         }
         else{
-          path = '/home';
+          path = '/';
         }
         $location.url(path);
       }).catch(function(err){
