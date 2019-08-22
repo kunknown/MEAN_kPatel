@@ -140,7 +140,9 @@ angular.module('dataCtrl', []).controller('dataController', ['$scope', '$http', 
       var e = $event;
       e.currentTarget.childNodes.forEach(function(ele){
         if(ele.type==='textarea'){
-          ele.style.height = (ele.scrollHeight) + 'px';
+          $(ele).animate({
+            height: ele.scrollHeight
+          }, 500);
         };
       });
     }

@@ -1,6 +1,6 @@
 <div class="container">
         <div class="row">
-                <form ng-init="getData('')" novalidate ng-model="data">
+                <form ng-init="getData('')" novalidate ng-model="data" ng-cloak>
                     <div class="header input-field">
                         <label ng-if="data.title===''" for="title">Title</label>
                         <input ng-model="data.title" ng-hide="skillEdit" class="center" type="text" id="title" value="{{data.title}}">
